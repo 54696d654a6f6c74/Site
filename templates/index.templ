@@ -1,0 +1,10 @@
+package templates
+
+templ Index(articles []templ.Component) {
+	<span style="width: 100%; text-align: center; display: block; font-size: 24px; font-weight: 600;">BitwiseDev</span>
+	<hr style="width: 100%;"/>
+
+	for _, article := range articles {
+		@article
+	}
+}
