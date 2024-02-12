@@ -23,7 +23,7 @@ func Index(articles []templ.Component) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<span style=\"width: 100%; text-align: center; display: block; font-size: 24px; font-weight: 600;\">BitwiseDev</span><hr style=\"width: 100%;\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<h1 style=\"text-decoration: underline;\">Recent articles:</h1>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

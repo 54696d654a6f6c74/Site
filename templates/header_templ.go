@@ -10,7 +10,7 @@ import "context"
 import "io"
 import "bytes"
 
-func Wrapper(content templ.Component) templ.Component {
+func Headings() templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -23,19 +23,7 @@ func Wrapper(content templ.Component) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!doctype html><html style=\"height: 100vh; width: 100vw; display: flex; justify-content: center;\"><head><meta charset=\"UTF-8\"><script src=\"./public/htmx.min.js\"></script><title>BitwiseDev</title></head><body style=\"color: white; background-color: black; font-family: sans-serif; padding-left: 16px; padding-right: 16px; padding-top: 16px; display: flex; width: 100%; flex-direction: column; gap: 16px; width: 100%; max-width: 1024px;\">")
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = Headings().Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = content.Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</body></html>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<span style=\"width: 100%; text-align: center; display: block; font-size: 24px; font-weight: 600;\">BitwiseDev</span><hr style=\"width: 100%;\"><strong style=\"display: flex; width: 100%; justify-content: center; gap: 16px\"><a href=\"/articles\">Articles</a> <a href=\"/about\">About me</a></strong>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

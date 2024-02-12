@@ -53,5 +53,5 @@ func getArticles() []templ.Component {
 }
 
 func Index(ctx echo.Context) error {
-	return renderPage(ctx, templates.Index(getArticles()))
+	return renderPage(ctx, templates.Index(getArticles()[:2]))
 }
