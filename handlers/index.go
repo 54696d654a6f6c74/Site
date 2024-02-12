@@ -12,31 +12,33 @@ import (
 )
 
 func getArticles() []templ.Component {
-	articleFiles, err := os.ReadDir("./articles")
+	articleFolders, err := os.ReadDir("./articles")
 
 	if err != nil {
 		fmt.Println(err)
 	}
 
-	sort.Slice(articleFiles, func(a, b int) bool {
-		aInfo, err := articleFiles[a].Info()
+	articleFolders = services.FilterForFolders(articleFolders)
+
+	sort.Slice(articleFolders, func(a, b int) bool {
+		aInfo, err := articleFolders[a].Info()
 
 		if err != nil {
 			fmt.Println(err)
 		}
 
-		bInfo, err := articleFiles[b].Info()
+		bInfo, err := articleFolders[b].Info()
 
-		aTime := services.GetFileCreationTime(aInfo)
-		bTime := services.GetFileCreationTime(bInfo)
+		aTime := services.GetFileChangeTime(aInfo)
+		bTime := services.GetFileChangeTime(bInfo)
 
 		return aTime.Unix() > bTime.Unix()
 	})
 
 	articles := []templ.Component{}
 
-	for _, file := range articleFiles {
-		conent, err := os.ReadFile("./articles/" + file.Name())
+	for _, file := range articleFolders {
+		conent, err := os.ReadFile("./articles/" + file.Name() + "/article.md")
 
 		if err != nil {
 			fmt.Println(err)

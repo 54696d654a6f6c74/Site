@@ -7,6 +7,7 @@ Here's a [link](http://google.com)!
 > ### _Thank you_
 
 And some bullet points
+
 - Because
 - Why
-- Not?
+- Not?!
