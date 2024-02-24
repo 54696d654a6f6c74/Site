@@ -1,4 +1,4 @@
-package handlers
+package services
 
 import (
 	"main/templates"
@@ -13,6 +13,6 @@ func render(ctx echo.Context, statusCode int, t templ.Component) error {
 	return t.Render(ctx.Request().Context(), ctx.Response().Writer)
 }
 
-func renderPage(ctx echo.Context, page templ.Component) error {
+func RenderPage(ctx echo.Context, page templ.Component) error {
 	return render(ctx, 200, templates.Wrapper(page))
 }

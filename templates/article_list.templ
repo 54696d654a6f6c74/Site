@@ -1,0 +1,23 @@
+package templates
+
+func toUppper(name string) string {
+firstChar := bytes.ToUpper([]byte{[]byte(name)[0]})
+return string(firstChar) + string(name[1:])
+}
+
+templ ArticleList(articles []string) {
+<style>
+  .hover:hover {
+    background: rgb(20, 20, 20);
+    cursor: pointer;
+  }
+</style>
+<div style="display: flex; flex-direction: column;">
+  for _, article := range articles {
+  <a style="font-size: 20; padding: 8px; font-weight: 600; color: white; text-decoration: none;" class="hover" href={
+    templ.URL("/articles/" + article) }>
+    { toUppper(article) }
+  </a>
+  }
+</div>
+}
