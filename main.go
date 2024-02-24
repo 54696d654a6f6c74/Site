@@ -13,6 +13,7 @@ func main() {
 	e.Static("/public", "public")
 
 	e.GET("/", handlers.Index)
+	e.GET("/about", handlers.GetAbout)
 	e.GET("/articles", handlers.GetArticles)
 	e.GET("/articles/:name", handlers.GetArticle)
 
