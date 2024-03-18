@@ -23,7 +23,7 @@ func Wrapper(content templ.Component) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!doctype html><html style=\"height: 100vh; width: 100vw; display: flex; justify-content: center;\"><head><meta charset=\"UTF-8\"><script src=\"/public/htmx.min.js\"></script><title>BitwiseDev</title></head><body style=\"color: white; background-color: black; font-family: sans-serif; padding-left: 16px; padding-right: 16px; padding-top: 16px; display: flex; width: 100%; flex-direction: column; gap: 16px; width: 100%; max-width: 1024px;\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!doctype html><html style=\"height: 100vh; width: 100vw; display: flex; justify-content: center; background-color: black; \"><head><meta charset=\"UTF-8\"><script src=\"/public/htmx.min.js\"></script><title>BitwiseDev</title></head><body style=\"color: white; background-color: black; font-family: sans-serif; padding-left: 16px; padding-right: 16px; padding-top: 16px; display: flex; width: 100%; flex-direction: column; gap: 16px; width: 100%; max-width: 1024px;\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
