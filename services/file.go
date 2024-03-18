@@ -23,13 +23,23 @@ func FilterForFiles(entries []fs.DirEntry) []fs.DirEntry {
 	return filtered
 }
 
-func FilterForFolders(entries []fs.DirEntry) []fs.DirEntry {
+func isHidden(folder fs.DirEntry) bool {
+	return folder.Name()[0] == '.'
+}
+
+func FilterForFolders(entries []fs.DirEntry, incHidden bool) []fs.DirEntry {
 	filtered := []fs.DirEntry{}
 
 	for _, entry := range entries {
-		if entry.IsDir() == true {
-			filtered = append(filtered, entry)
+		if !incHidden && isHidden(entry) {
+			continue
 		}
+
+		if entry.IsDir() != true {
+			continue
+		}
+
+		filtered = append(filtered, entry)
 	}
 
 	return filtered

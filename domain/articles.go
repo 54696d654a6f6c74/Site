@@ -24,7 +24,7 @@ func GetArticles() [][]byte {
 		log.Println(err)
 	}
 
-	articleFolders = services.FilterForFolders(articleFolders)
+	articleFolders = services.FilterForFolders(articleFolders, false)
 
 	sort.Slice(articleFolders, func(a, b int) bool {
 		aInfo, err := articleFolders[a].Info()
@@ -63,7 +63,7 @@ func GetArticleNames() []string {
 		log.Println(err)
 	}
 
-	articleFolders = services.FilterForFolders(articleFolders)
+	articleFolders = services.FilterForFolders(articleFolders, false)
 
 	sort.Slice(articleFolders, func(a, b int) bool {
 		aInfo, err := articleFolders[a].Info()
