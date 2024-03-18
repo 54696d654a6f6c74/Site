@@ -23,5 +23,11 @@ func renderArticles() []templ.Component {
 }
 
 func Index(ctx echo.Context) error {
-	return services.RenderPage(ctx, templates.Index(renderArticles()[:2]))
+	indexArticles := renderArticles()
+
+	if len(indexArticles) >= 2 {
+		indexArticles = indexArticles[:2]
+	}
+
+	return services.RenderPage(ctx, templates.Index(indexArticles))
 }
