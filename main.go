@@ -17,6 +17,8 @@ func main() {
 	e.GET("/articles", handlers.GetArticles)
 	e.GET("/articles/:name", handlers.GetArticle)
 
+	e.GET("/data/articles", handlers.IndexArticles)
+
 	log.Println("Listening on port 3000")
 	e.Logger.Fatal(e.Start(":3000"))
 }

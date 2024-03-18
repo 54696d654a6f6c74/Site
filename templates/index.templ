@@ -1,8 +1,12 @@
 package templates
 
-templ Index(articles []templ.Component) {
-	<h1 style="text-decoration: underline;">Recent articles:</h1>
+templ IndexArticles(articles []templ.Component) {
 	for _, article := range articles {
 		@article
 	}
+}
+
+templ Index() {
+	<h1 style="text-decoration: underline;">Recent articles:</h1>
+	<main hx-trigger="load" hx-get="/data/articles" hx-swap="outerHTML"></main>
 }

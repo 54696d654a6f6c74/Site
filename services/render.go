@@ -7,12 +7,12 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-func render(ctx echo.Context, statusCode int, t templ.Component) error {
-	ctx.Response().Writer.WriteHeader(statusCode)
+func RenderComponent(ctx echo.Context, t templ.Component) error {
+	ctx.Response().Writer.WriteHeader(200)
 	ctx.Response().Header().Set(echo.HeaderContentType, echo.MIMETextHTML)
 	return t.Render(ctx.Request().Context(), ctx.Response().Writer)
 }
 
 func RenderPage(ctx echo.Context, page templ.Component) error {
-	return render(ctx, 200, templates.Wrapper(page))
+	return RenderComponent(ctx, templates.Wrapper(page))
 }
