@@ -1,13 +1,16 @@
 package templates
 
+templ NavLink(text string, link string) {
+<a style="font-size: 1.75em; text-decoration: none; color:white; border: white solid; border-radius: 0.25em; padding: 0.25em; width: 5em; text-align: center;"
+  href={ templ.SafeURL(link) }>{ text }</a>
+}
+
 templ Headings() {
-	<a
-		href="/"
-		style="width: 100%; text-align: center; display: block; font-size: 24px; font-weight: 600; color:white; text-decoration: none;"
-	>BitwiseDev</a>
-	<hr style="width: 100%;"/>
-	<strong style="display: flex; width: 100%; justify-content: center; gap: 16px">
-		<a href="/articles">Articles</a>
-		<a href="/about">About me</a>
-	</strong>
+<a href="/"
+  style="width: 100%; text-align: center; display: block; font-size: 3.5em; font-weight: 600; color:white; text-decoration: none;">BitwiseDev</a>
+<hr style="width: 100%;" />
+<strong style="display: flex; width: 100%; justify-content: center; gap: 1em">
+  @NavLink("Articles", "/articles")
+  @NavLink("About", "/about")
+</strong>
 }
