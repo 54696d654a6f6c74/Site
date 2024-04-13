@@ -6,21 +6,15 @@ func toUppper(name string) string {
 }
 
 templ ArticleListPage(articles []string) {
-	<style>
-  .hover:hover {
-    background: rgb(20, 20, 20);
-    cursor: pointer;
-  }
-</style>
-	<div style="display: flex; flex-direction: column;">
-		for _, article := range articles {
-			<a
-				style="font-size: 20; padding: 8px; font-weight: 600; color: white; text-decoration: none;"
-				class="hover"
-				href={ templ.URL("/articles/" + article) }
-			>
-				{ toUppper(article) }
-			</a>
-		}
-	</div>
+	<section>
+		<ol>
+			for _, article := range articles {
+				<li>
+					<a style="width: 100%; display: block;" href={ templ.URL("/articles/" + article) }>
+						<span>{ toUppper(article) }</span>
+					</a>
+				</li>
+			}
+		</ol>
+	</section>
 }
