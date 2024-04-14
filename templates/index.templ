@@ -7,6 +7,8 @@ templ IndexArticles(articles []templ.Component) {
 }
 
 templ Index() {
-	<h1 style="text-decoration: underline;">Recent articles:</h1>
-	<main hx-trigger="load" hx-get="/data/articles" hx-swap="outerHTML"></main>
+	<section>
+		<h1>Recent articles:</h1>
+	</section>
+	<section hx-trigger="load" hx-get="/data/articles" hx-swap="innerHtml"></section>
 }

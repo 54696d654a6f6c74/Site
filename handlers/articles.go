@@ -9,5 +9,5 @@ import (
 )
 
 func GetArticles(ctx echo.Context) error {
-	return services.RenderPage(ctx, templates.ArticleList(articles.GetArticleNames()))
+	return services.RenderPage(ctx, templates.ArticleListPage(articles.GetArticleNames()))
 }

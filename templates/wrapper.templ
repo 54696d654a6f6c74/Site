@@ -1,20 +1,21 @@
 package templates
 
 templ Wrapper(content templ.Component) {
-<!DOCTYPE html>
-<html style="height: 100vh; width: 100vw; display: flex; justify-content: center; background-color: black; ">
-
-<head>
-  <meta charset="UTF-8" />
-  <script src="/public/htmx.min.js"></script>
-  <title>BitwiseDev</title>
-</head>
-
-<body
-  style="color: white; background-color: black; font-family: sans-serif; padding-left: 16px; padding-right: 16px; padding-top: 16px; display: flex; width: 100%; flex-direction: column; gap: 16px; width: 100%; max-width: 1024px;">
-  @Headings()
-  @content
-</body>
-
-</html>
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1"/>
+			<meta name="color-scheme" content="light dark"/>
+			<script src="/public/htmx.min.js"></script>
+			<link rel="stylesheet" href="/public/pico.css"/>
+			<title>BitwiseDev</title>
+		</head>
+		<body>
+			@Headings()
+			<main>
+				@content
+			</main>
+		</body>
+	</html>
 }

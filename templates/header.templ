@@ -1,13 +1,29 @@
 package templates
 
+templ NavLink(text string, link string) {
+	<li>
+		<h4><a href={ templ.SafeURL(link) }>{ text }</a></h4>
+	</li>
+}
+
 templ Headings() {
-	<a
-		href="/"
-		style="width: 100%; text-align: center; display: block; font-size: 24px; font-weight: 600; color:white; text-decoration: none;"
-	>BitwiseDev</a>
-	<hr style="width: 100%;"/>
-	<strong style="display: flex; width: 100%; justify-content: center; gap: 16px">
-		<a href="/articles">Articles</a>
-		<a href="/about">About me</a>
-	</strong>
+	<header>
+		<style>
+    @font-face {
+      font-family: Anthony;
+      src: url('/public/Anthony.otf');
+    }
+  </style>
+		<hgroup>
+			<h1 style="text-align: center; font-size: 56px;">
+				<a style="text-decoration: none; font-family: Anthony; color: white; font-weight:900;" href="/">BitwiseDev</a>
+			</h1>
+		</hgroup>
+		<nav style="justify-content: center;">
+			<ul>
+				@NavLink("Articles", "/articles")
+				@NavLink("About", "/about")
+			</ul>
+		</nav>
+	</header>
 }
