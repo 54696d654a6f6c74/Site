@@ -13,10 +13,83 @@ templ Headings() {
       font-family: Anthony;
       src: url('/public/Anthony.otf');
     }
+
+    .stack {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .stack a {
+      grid-row-start: 1;
+      grid-column-start: 1;
+      animation: stack 340ms cubic-bezier(.46, .29, 0, 1.24) 1 backwards calc(var(--index) * 120ms), glitch 2s ease infinite 2s alternate-reverse;
+    }
+
+    .stack span:nth-child(odd) {
+      --glitch-translate: 8px;
+    }
+
+    .stack span:nth-child(even) {
+      --glitch-translate: -8px;
+    }
+
+    @keyframes stack {
+      0% {
+        opacity: 0;
+        transform: translateX(-50%);
+        text-shadow: -2px 3px 0 red, 2px -3px 0 blue;
+      }
+
+      60% {
+        opacity: 0.5;
+        transform: translateX(50%);
+      }
+
+      80% {
+        transform: none;
+        opacity: 1;
+        text-shadow: 2px -3px 0 red, -2px 3px 0 blue;
+      }
+
+      100% {
+        text-shadow: none;
+      }
+    }
+
+    @keyframes glitch {
+      0% {
+        text-shadow: -2px 3px 0 red, 2px -3px 0 blue;
+        transform: translate(var(--glitch-translate));
+      }
+
+      2% {
+        text-shadow: 2px -3px 0 red, -2px 3px 0 blue;
+      }
+
+      100% {
+        text-shadow: none;
+        transform: none;
+      }
+    }
   </style>
 		<hgroup>
-			<h1 style="text-align: center; font-size: 56px;">
-				<a style="text-decoration: none; font-family: Anthony; color: white; font-weight:900;" href="/">BitwiseDev</a>
+			<h1 class="stack" style="text-align: center; font-size: 56px;">
+				<a
+					style="text-decoration: none; font-family: Anthony; color: white; font-weight:900; --index: 0"
+					href="/"
+				>BitwiseDev</a>
+				<a
+					style="text-decoration: none; font-family: Anthony; color: white; font-weight:900; --index: 1"
+					href="/"
+				>BitwiseDev</a>
+				<a
+					style="text-decoration: none; font-family: Anthony; color: white; font-weight:900; --index: 2"
+					href="/"
+				>BitwiseDev</a>
+				<a
+					style="text-decoration: none; font-family: Anthony; color: white; font-weight:900; --index: 3"
+					href="/"
+				>BitwiseDev</a>
 			</h1>
 		</hgroup>
 		<nav style="justify-content: center;">
