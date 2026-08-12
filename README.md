@@ -1,3 +1,8 @@
+## Build
+Simply run `go tool air` to run the hot reload server
+
+If you just want to fire and forget the `go run .` should do the trick
+
 ## Quirks:
 
 #### Article folder structure:
