@@ -1,8 +1,12 @@
 package main
 
 import (
+	"fmt"
+	"os"
+
 	"main/handlers"
 
+	"github.com/joho/godotenv"
 	"github.com/labstack/echo/v4"
 	"golang.org/x/crypto/acme/autocert"
 )
@@ -21,5 +25,16 @@ func main() {
 
 	e.GET("/data/articles", handlers.IndexArticles)
 
-	e.Logger.Fatal(e.StartAutoTLS(":443"))
+	godotenv.Load()
+	envPort, ok := os.LookupEnv("PORT")
+
+	var port string
+
+	if ok {
+		port = envPort
+	} else {
+		port = "3000"
+	}
+
+	e.Logger.Fatal(e.StartAutoTLS(fmt.Sprintf(":%s", port)))
 }

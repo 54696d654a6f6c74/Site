@@ -3,6 +3,11 @@ Simply run `go tool air` to run the hot reload server
 
 If you just want to fire and forget the `go run .` should do the trick
 
+Default port is `3000`
+
+To change it, set the `PORT` env var to the desired port number.
+Can be done locally via a `.env` file
+
 ## Quirks:
 
 #### Article folder structure:
