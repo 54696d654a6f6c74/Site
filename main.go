@@ -8,7 +8,6 @@ import (
 
 	"github.com/joho/godotenv"
 	"github.com/labstack/echo/v4"
-	"golang.org/x/crypto/acme/autocert"
 )
 
 func main() {
@@ -20,8 +19,6 @@ func main() {
 	e.GET("/about", handlers.GetAbout)
 	e.GET("/articles", handlers.GetArticles)
 	e.GET("/articles/:name", handlers.GetArticle)
-
-	e.AutoTLSManager.Cache = autocert.DirCache("/var/www/.cache")
 
 	e.GET("/data/articles", handlers.IndexArticles)
 
@@ -36,5 +33,5 @@ func main() {
 		port = "3000"
 	}
 
-	e.Logger.Fatal(e.StartAutoTLS(fmt.Sprintf(":%s", port)))
+	e.Logger.Fatal(e.Start(fmt.Sprintf(":%s", port)))
 }
