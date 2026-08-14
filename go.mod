@@ -5,6 +5,7 @@ go 1.26.0
 require (
 	github.com/a-h/templ v0.3.1020
 	github.com/gomarkdown/markdown v0.0.0-20240419095408-642f0ee99ae2
+	github.com/joho/godotenv v1.5.1
 	github.com/labstack/echo/v4 v4.12.0
 	golang.org/x/crypto v0.53.0
 )
@@ -25,7 +26,6 @@ require (
 	github.com/gobwas/glob v0.2.3 // indirect
 	github.com/gohugoio/hashstructure v0.6.0 // indirect
 	github.com/gohugoio/hugo v0.164.0 // indirect
-	github.com/joho/godotenv v1.5.1 // indirect
 	github.com/labstack/gommon v0.4.2 // indirect
 	github.com/mattn/go-colorable v0.1.14 // indirect
 	github.com/mattn/go-isatty v0.0.22 // indirect

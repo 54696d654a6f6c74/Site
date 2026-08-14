@@ -1,17 +1,16 @@
 package templates
 
-func toUppper(name string) string {
-	firstChar := bytes.ToUpper([]byte{[]byte(name)[0]})
-	return string(firstChar) + string(name[1:])
-}
+import (
+	"main/entities"
+)
 
-templ ArticleListPage(articles []string) {
+templ ArticleListPage(articles []*entities.Article) {
 	<section>
 		<ol>
 			for _, article := range articles {
 				<li>
-					<a style="width: 100%; display: block;" href={ templ.URL("/articles/" + article) }>
-						<span>{ toUppper(article) }</span>
+					<a style="width: 100%; display: block;" href={ templ.URL("/articles/" + article.Metadata.Path) }>
+						<span>{ article.Metadata.Name }</span>
 					</a>
 				</li>
 			}

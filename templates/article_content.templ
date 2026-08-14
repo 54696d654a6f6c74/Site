@@ -1,0 +1,7 @@
+package templates
+
+templ ArticleContent(content string) {
+	<article>
+		@templ.Raw(content)
+	</article>
+}

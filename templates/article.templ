@@ -1,7 +1,12 @@
 package templates
 
-templ Article(content string) {
+import (
+	"main/entities"
+)
+
+templ Article(article *entities.Article) {
 	<article>
-		@templ.Raw(content)
+		@ArticleMetadata(article.Metadata)
+		@ArticleContent(article.GetRenderedContent())
 	</article>
 }

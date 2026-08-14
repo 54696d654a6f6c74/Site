@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"log"
-	articles "main/domain"
+	articles "main/domain/article"
 	"main/services"
 	"main/templates"
 
@@ -15,9 +15,13 @@ type params struct {
 }
 
 func getArticle(name string) templ.Component {
-	rendered := string(services.MdToHTML(articles.GetArticle(name)))
+	article := articles.GetArticle(name)
 
-	return templates.Article(rendered)
+	if article == nil {
+		return nil
+	}
+
+	return templates.Article(article)
 }
 
 func GetArticle(ctx echo.Context) error {
@@ -29,5 +33,10 @@ func GetArticle(ctx echo.Context) error {
 		log.Println("Failed to parse path params")
 	}
 
-	return services.RenderPage(ctx, getArticle(params.Name))
+	pageContent := getArticle(params.Name)
+	if pageContent == nil {
+		return echo.NewHTTPError(404, "Article does not exist")
+	}
+
+	return services.RenderPage(ctx, pageContent)
 }

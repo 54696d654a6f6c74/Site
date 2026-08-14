@@ -6,9 +6,13 @@ import (
 	"time"
 )
 
-func GetFileChangeTime(fileInfo fs.FileInfo) time.Time {
+func GetFileCreateTime(fileInfo fs.FileInfo) time.Time {
 	ct := fileInfo.Sys().(*syscall.Stat_t).Ctim
 	return time.Unix(int64(ct.Sec), int64(ct.Nsec))
+}
+
+func GetFileModTime(fileInfo fs.FileInfo) time.Time {
+	return fileInfo.ModTime()
 }
 
 func FilterForFiles(entries []fs.DirEntry) []fs.DirEntry {

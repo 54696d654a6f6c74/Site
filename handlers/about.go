@@ -18,5 +18,5 @@ func GetAbout(ctx echo.Context) error {
 
 	rendered := services.MdToHTML(about)
 
-	return services.RenderPage(ctx, templates.Article(string(rendered)))
+	return services.RenderPage(ctx, templates.ArticleContent(string(rendered)))
 }

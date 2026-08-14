@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	articles "main/domain"
+	articles "main/domain/article"
 	"main/services"
 	"main/templates"
 
@@ -13,10 +13,8 @@ import (
 func renderArticles() []templ.Component {
 	renderedArticles := []templ.Component{}
 
-	for _, articleContent := range articles.GetArticles() {
-		rendered := string(services.MdToHTML(articleContent))
-
-		renderedArticles = append(renderedArticles, templates.Article(rendered))
+	for _, article := range articles.GetArticles() {
+		renderedArticles = append(renderedArticles, templates.Article(article))
 	}
 
 	return renderedArticles

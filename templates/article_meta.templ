@@ -1,0 +1,13 @@
+package templates
+
+import "main/entities"
+import "time"
+
+templ ArticleMetadata(meta *entities.ArticleMeta) {
+	<div style="width: 100%; display: flex; justify-content: end">
+		<p>Published - { meta.GetCreated().Format(time.DateOnly) }</p>
+		if meta.GetCreated().Format(time.DateOnly) != meta.GetModified().Format(time.DateOnly) {
+			<p>Modified - { meta.GetModified().Format(time.DateOnly) }</p>
+		}
+	</div>
+}
